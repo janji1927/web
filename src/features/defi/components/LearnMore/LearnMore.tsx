@@ -2,7 +2,9 @@ import { ArrowBackIcon } from '@chakra-ui/icons'
 import { Box, Flex } from '@chakra-ui/layout'
 import { Button, IconButton } from '@chakra-ui/react'
 import { useSteps } from 'chakra-ui-steps'
-import osmosis from 'assets/osmosis.svg'
+import rewards from 'assets/rewards.svg'
+import risk from 'assets/risk.svg'
+import withdraw from 'assets/withdraw.svg'
 import { CarouselDots } from 'components/CarouselDots/CarouselDots'
 import { SlideTransition } from 'components/SlideTransition'
 import { Text } from 'components/Text'
@@ -17,15 +19,15 @@ const STEP_TO_ELEMENTS_MAPPING = {
       'defi.learnMore.bodies.amountStakingInfo',
       'defi.learnMore.bodies.withdrawInfo'
     ],
-    headerImageSrc: osmosis
+    headerImageSrc: rewards
   },
   2: {
     bodies: ['defi.learnMore.bodies.unbondingInfo'],
-    headerImageSrc: osmosis
+    headerImageSrc: withdraw
   },
   3: {
     bodies: ['defi.learnMore.bodies.slashingInfo', 'defi.learnMore.bodies.partnerInfo'],
-    headerImageSrc: osmosis
+    headerImageSrc: risk
   }
 }
 
@@ -86,7 +88,7 @@ export const LearnMore = ({ assetId }: LearnMoreProps) => {
         >
           <Flex direction='column' alignItems='center'>
             <DefiModalHeader
-              headerImageSrc={osmosis}
+              headerImageSrc={STEP_TO_ELEMENTS_MAPPING[activeStep as 1 | 2 | 3].headerImageSrc}
               headerText={[`defi.learnMore.headers.${activeStep - 1}`, { assetName: asset.name }]}
               headerImageWidth={120}
             />
